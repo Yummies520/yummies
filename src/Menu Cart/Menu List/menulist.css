@@ -1,0 +1,65 @@
+.container {
+  background-color: #c5c2c2;
+}
+.menuList {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+
+  border: 2px solid #c0392b;
+  border-radius: 12px;
+  margin-top: 20px;
+  transition: border-color 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+.menuList:hover {
+  border-color: #f2613f;
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.menuListImage img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+.menuList:hover .menuListImage img {
+  transform: scale(1.1);
+}
+
+.menuList-Body {
+  flex-grow: 1;
+  padding-left: 20px;
+}
+
+.menuList-name-price {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.menuList-Name {
+  font-size: 22px;
+  font-weight: bold; /* Set font weight to bold */
+  color: #333;
+}
+
+.menuList-Price {
+  font-size: 18px;
+  font-weight: bold;
+  color: #c0392b;
+}
+
+.menuList-Desc {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.5;
+}

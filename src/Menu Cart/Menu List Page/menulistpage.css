@@ -1,0 +1,52 @@
+
+.menuHeader{
+    display: flex;
+    justify-content: center;
+    background-color: bisque;
+}
+.AdminLogin{
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    position: absolute;
+    right: 10px;
+    top: 8px;
+    border: 0.2px solid grey
+}
+.headerLogo{
+    color:#c0392b;
+    font-weight: 700;
+    line-height: 2;
+    margin-bottom: 50px;
+  }
+  .menubutton{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    overflow-y: hidden;
+    padding: 0 30px;
+    padding-bottom: 30px;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    background-color: bisque;
+  }
+  .menubutton button::before{
+    border-radius: 4px;
+    padding: 10px 20px;
+    background-color: #fff;
+    border: none;
+  }
+  .menubutton button{
+    border-radius: 4px;
+    padding: 10px 20px;
+    background-color: #c0392b;
+    border: none;
+    color: #fff;
+    font-weight: 500;
+  }
+
+  .menubutton button:hover{
+    background-color: #fff;
+    color: #c0392b;
+  }
