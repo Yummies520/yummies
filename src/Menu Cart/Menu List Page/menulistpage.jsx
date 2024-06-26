@@ -10,7 +10,6 @@ const MenuListPage = () => {
 
   useEffect(() => {
     const getFoodData = async (e) => {
-        console.log("function getting called");
         try {
           await axios.get(BASE_URL + "getMenu").then((res) => {
             setMenuData(res.data);
