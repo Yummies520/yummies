@@ -2,18 +2,37 @@ import React, { useEffect, useState } from "react";
 import "../Menu List/menulist.css";
 import Add from "../../Assests/plus.png";
 import Sub from "../../Assests/substract.png";
+import axios from "axios";
 
 const MenuList = ({ data }) => {
+  const [currentDate, setCurrentDate] = useState('');
   const [cartData, setCartData] = useState([]);
   const [cartFlag, setCartFlag] = useState(false);
   const [makeCart, setMakeCart] = useState(cartData);
-  const customerSubmitForm = { CName: "", CNumber: "" };
+  const customerSubmitForm = { CName: "", CNumber: ""};
   const [submitForm, setSubmitForm] = useState(customerSubmitForm);
   const [submitFormFlag, SetSubmitFormFlag] = useState(false);
+  const BASE_URL = 'http://localhost:3000/';
 
 
 
   useEffect(() => {
+    
+    const formatDate = (dateString) => {
+      const date = new Date(dateString);
+      
+      const day = String(date.getDate()).padStart(2, '0');
+      const month = String(date.getMonth() + 1).padStart(2, '0'); // Months are zero-based
+      const year = date.getFullYear();
+      
+      const hours = String(date.getHours()).padStart(2, '0');
+      const minutes = String(date.getMinutes()).padStart(2, '0');
+      const seconds = String(date.getSeconds()).padStart(2, '0');
+      
+      return `${day}/${month}/${year} ${hours}:${minutes}:${seconds}`;
+    }
+    
+    setCurrentDate(new Date());
     setMakeCart(cartData);
     sessionStorage.setItem("cartItems", JSON.stringify(cartData));
   }, [cartData]);
@@ -53,7 +72,6 @@ const MenuList = ({ data }) => {
 
   const handleCartSubmit = () => {
     SetSubmitFormFlag(true);
-    setCartFlag(false);
   };
 
   const handelCartCancel = () => {
@@ -68,11 +86,19 @@ const MenuList = ({ data }) => {
     SetSubmitFormFlag(false);
   }
 
-  const handleFormSave = (e) => {
+  const handleFormSave = async (e) => {
     e.preventDefault();
-    // console.log(submitForm, sessionStorage.getItem('cartItems'),'rhis is the cutsomer data');
-    // All the customer data and the cart data is to be submitted and the old data is to be cleared
-    // The code to post request is to be written 
+    const submitFormData = {Form:submitForm, item:sessionStorage.getItem('cartItems'), Date: currentDate}
+    try{
+      await axios.post(BASE_URL + 'setRecordItem', submitFormData).then((res) => {
+      })
+    }catch(err){
+      console.log(err);
+    }
+    sessionStorage.removeItem("cartItems");
+    setMakeCart([]);
+    setCartData([]);
+    setCartFlag(false);
     SetSubmitFormFlag(false);
   }
 
