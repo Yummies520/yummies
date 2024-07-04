@@ -1,0 +1,9 @@
+.recordsPage{
+    width: 100vw;
+    height: 100vh;
+}
+.records-header{
+    padding-top: 50px;
+    color: rgb(210, 62, 62);
+    align-items: center;
+}

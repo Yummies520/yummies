@@ -6,7 +6,8 @@ import axios from "axios";
 const MenuListPage = () => {
   const [menuData, setMenuData] = useState([]);
   const [subMenu, setSubMenu] = useState([]);
-    const BASE_URL = "https://demobackend-e6mi.onrender.com/";
+  const BASE_URL = 'http://localhost:3000/'
+  // const BASE_URL = "https://demobackend-e6mi.onrender.com/";
 
   useEffect(() => {
     const getFoodData = async (e) => {
