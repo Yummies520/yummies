@@ -1,0 +1,48 @@
+.recordData {
+  cursor: pointer;
+  height: 10%;
+  border-radius: 8px;
+  border: 1px solid black;
+  box-shadow: rgba(93, 93, 165, 0.25) 0px 30px 60px -12px inset,
+    rgba(46, 62, 79, 0.3) 0px 18px 36px -18px inset;
+}
+.customerRecord {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 10px;
+  align-items: baseline;
+}
+.customerName {
+  color: #0f67b1;
+  font-size: 16px;
+  font-style: italic;
+  font-weight: 700;
+}
+.customerName span {
+  color: black;
+}
+.customerNumber {
+  color: black;
+  font-size: 12px;
+  font-style: oblique;
+  font-weight: 600;
+}
+.customerNumber span {
+  color: #0f67b1;
+}
+.customerCreatedDate {
+  color: Black;
+  font-size: 12px;
+  font-style: oblique;
+  font-weight: 700;
+}
+.customerCreatedDate span {
+  color: #0f67b1;
+  font-size: 16px;
+  font-style: italic;
+}
+.itemRecord {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px 10px 10px;
+}
