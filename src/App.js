@@ -6,7 +6,7 @@ function App() {
   return (
     <div className="App">
         {/* <MenuListPage></MenuListPage> */}
-        {/* <Records></Records> */}
+        <Records></Records>
     </div>
   );
 }

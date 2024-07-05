@@ -1,9 +1,73 @@
-.recordsPage{
-    width: 100vw;
-    height: 100vh;
+.recordsPage {
+  width: 100vw;
+  height: 100vh;
 }
-.records-header{
-    padding-top: 50px;
-    color: rgb(210, 62, 62);
+.records-header {
+  padding-top: 50px;
+  color: rgb(210, 62, 62);
+  align-items: center;
+}
+.records-header h1 {
+  margin: 0;
+  padding: 0;
+}
+.records-display {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 10px;
+}
+.singleRecordDataOverlay {
+  opacity: 0.5;
+  z-index: 11;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}
+.singleRecordData {
+  height: 65%;
+  width: 53%;
+  /* background-color: black; */
+  background-color: rgb(252, 252, 252);
+  border-radius: 12px;
+  z-index: 15;
+  position: fixed;
+  top: 15%;
+  left: 18%;
+  padding: 20px;
+  box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset,
+    rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.customerDetails {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.itemValue {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.itemList{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border: 1px dotted black;
+    align-items: center;
+    border-radius: 8px;
+}
+.singleItemList{
+    display: flex;
+    justify-content: space-between;
     align-items: center;
 }
