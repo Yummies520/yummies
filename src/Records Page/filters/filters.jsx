@@ -9,7 +9,8 @@ const Filters = () => {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
   const [selectedDropdown, setSelectedDropdown] = useState("Last Day");
-  const BASE_URL = 'http://localhost:3000/';
+  // const BASE_URL = 'http://localhost:3000/';
+  const BASE_URL = 'https://yummies-be.onrender.com/';
 
   const formatDate = (dateString) => {
     const date = new Date(dateString);
