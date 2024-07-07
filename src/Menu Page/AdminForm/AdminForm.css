@@ -1,0 +1,107 @@
+/* Button Styles */
+.addNewButton {
+    background-color: #f2613f; /* Vibrant orange-red */
+    padding: 12px 24px;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .addNewButton:hover {
+    background-color: #e74c3c; /* Slightly darker shade on hover */
+  }
+  
+  /* Form Styles */
+  .menuInputForm {
+    display: flex;
+    gap: 20px;
+    justify-content: center; /* Align form items in the center */
+    margin-top: 50px;
+  }
+  
+  .menuSubmit {
+    background-color: #f2613f;
+    padding: 12px 24px;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .menuSubmit:hover {
+    background-color: #e74c3c;
+  }
+  
+  /* Menu Item List Styles */
+  .menuItemList {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .menuListContainer {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    background-color: #fff; /* White background for each menu item */
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .menuListContainer:hover {
+    background-color: #f5f5f5; /* Light gray background on hover */
+  }
+  
+  .menuListBtn {
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 18px;
+    color: #333; /* Dark text color */
+    background: #2ab22e; /* Green button background */
+    padding: 12px 24px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .menuListBtn:hover {
+    background-color: #28a745; /* Slightly darker shade on hover */
+  }
+  
+  .menuListBtn:focus {
+    outline: none; /* Remove focus outline */
+  }
+  
+  .menuListBtnOption img {
+    height: 24px;
+    width: 24px;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .menuListBtnOption img:hover {
+    transform: scale(1.2); /* Scale up the delete icon on hover */
+  }
+  
+  /* Layover Styles */
+  .updateMenuLayover {
+    position: fixed; /* Fixed position to cover the entire viewport */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  

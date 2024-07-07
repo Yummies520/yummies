@@ -12,7 +12,8 @@ const MenuList = ({ data }) => {
   const customerSubmitForm = { CName: "", CNumber: ""};
   const [submitForm, setSubmitForm] = useState(customerSubmitForm);
   const [submitFormFlag, SetSubmitFormFlag] = useState(false);
-  const BASE_URL = 'http://localhost:3000/';
+  // const BASE_URL = 'http://localhost:3000/';
+  const BASE_URL = 'https://yummies-be.onrender.com/';
 
 
 

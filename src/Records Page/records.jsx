@@ -5,6 +5,7 @@ import RecordData from "./record data/recordData.jsx";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
+import BackIcon from "../Assests/angle-circle-arrow-left-icon.svg";
 
 const Records = () => {
   const [dateFlag, setDateFlag] = useState(false);
@@ -15,7 +16,8 @@ const Records = () => {
   const [recordClickFlag, setRecordClickFlag] = useState(false);
   const [clickedRecord, setClickedRecord] = useState([]);
   const [clickedItemList, setClickedItemList] = useState("");
-  const BASE_URL = "http://localhost:3000/";
+  // const BASE_URL = "http://localhost:3000/";
+  const BASE_URL = "https://yummies-be.onrender.com/";
 
   const formatDate = (dateString) => {
     const date = new Date(dateString);
@@ -65,6 +67,8 @@ const Records = () => {
     }
     setDateFlag(false);
     setSelectedDropdown("lastDay");
+    setStartDate(null);
+    setEndDate(null);
   };
 
   const handleCancelDate = () => {
@@ -80,16 +84,26 @@ const Records = () => {
 
   const calculateTotalValue = (menuArray) => {
     let total = 0;
-    menuArray.forEach(Item => {
+    menuArray.forEach((Item) => {
       total += parseInt(Item.menuPrice);
     });
     return total;
-  }
+  };
+  const handleBackIconClick = (e) => {
+    window.location.href = "/HomePage";
+  };
+
 
   return (
     <div className="recordsPage">
+      <img
+        src={BackIcon}
+        alt=""
+        className="BackIcon"
+        onClick={handleBackIconClick}
+      />
       <div className="records-header">
-        <h1>Header</h1>
+        <h1>Yummies Records</h1>
       </div>
       <div className="records-filters">
         <>
@@ -157,19 +171,25 @@ const Records = () => {
         <div className="singleRecordData">
           <div className="customerDetails">
             <div className="customerName">{clickedRecord.customer.CName}</div>
-            <div className="customerNumber">{clickedRecord.customer.CNumber}</div>
+            <div className="customerNumber">
+              {clickedRecord.customer.CNumber}
+            </div>
           </div>
           <div className="itemValue">
-            <div className="itemTotalValue">{calculateTotalValue(clickedItemList)}</div>
-            <div className="itemCreatedDate">{formatDate(clickedRecord.createdDate)}</div>
+            <div className="itemTotalValue">
+              {calculateTotalValue(clickedItemList)}
+            </div>
+            <div className="itemCreatedDate">
+              {formatDate(clickedRecord.createdDate)}
+            </div>
           </div>
           <div className="itemList">
             {clickedItemList.map((Item) => (
-            <div className="singleItemList">
-              <div className="itemName">{Item.menuName}</div>
-              <div className="itemPrice">{Item.menuPrice}</div>
-            </div>
-          ))}
+              <div className="singleItemList">
+                <div className="itemName">{Item.menuName}</div>
+                <div className="itemPrice">{Item.menuPrice}</div>
+              </div>
+            ))}
           </div>
         </div>
       ) : (
