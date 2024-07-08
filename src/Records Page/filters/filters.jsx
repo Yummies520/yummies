@@ -52,7 +52,6 @@ const Filters = () => {
       await axios
         .post(BASE_URL + "setRecordFilter", submitFilter)
         .then((res) => {
-          console.log(res.data,'this is the response data');
         });
     } catch (err) {
       console.log(err);

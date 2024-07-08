@@ -2,18 +2,19 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import DeleteIcon from "../../Assests/delete.svg";
 import "../AdminForm/AdminForm.css";
-import ChangeMenu from "../ChangeMenu/ChangeMenu.css";
+import ChangeMenu from "../ChangeMenu/ChangeMenu";
 import BackIcon from "../../Assests/angle-circle-arrow-left-icon.svg";
 
 const AdminForm = () => {
   const [menuItemName, setMenuItemName] = useState("");
-  const [menuShareItemName, setMenuShareItemName] = useState("");
+  // const [menuShareItemName, setMenuShareItemName] = useState("");
   const [displayAddNewForm, setDisplayAddNewForm] = useState(false);
   const BASE_URL = "https://yummies-be.onrender.com/";
   //   const BASE_URL = "http://localhost:3000/";
   const [menuItem, setMenuItem] = useState([]);
   const [showChangeMenu, setShowChangeMenu] = useState(false);
   const [subMenu, setSubMenu] = useState([]);
+  const [menuToBeShared, setMenuToBeShared] = useState("");
 
   useEffect(() => {
     const getFoodData = async () => {
@@ -27,6 +28,13 @@ const AdminForm = () => {
     };
     getFoodData();
   }, []);
+
+  useEffect(() => {
+    if (menuToBeShared) {
+      callSubMenuFunc(menuToBeShared);
+    }
+  }, [menuToBeShared]);
+
   const handleMenuItemName = (e) => {
     setMenuItemName(e.target.value);
   };
@@ -48,13 +56,17 @@ const AdminForm = () => {
     setDisplayAddNewForm(true);
   };
 
-  const handleMenuClick = async (e) => {
+
+  const handelMenuItemClick = (dataItemName) => {
+    setMenuToBeShared(dataItemName);
+  };
+
+  const callSubMenuFunc = async (dataName) => {
     setShowChangeMenu(true);
-    setMenuShareItemName(e.target.innerText);
     try {
       await axios
         .get(BASE_URL + "getSubMenu", {
-          params: { itemName: e.target.innerText },
+          params: { itemName: dataName },
         })
         .then((res) => {
           setSubMenu([]);
@@ -123,7 +135,7 @@ const AdminForm = () => {
               <button
                 className="menuListBtn"
                 key={data.itemName}
-                onClick={handleMenuClick}
+                onClick={() => handelMenuItemClick(data.itemName)}
               >
                 {data.itemName}
               </button>
@@ -143,7 +155,7 @@ const AdminForm = () => {
               className="updateMenuLayover"
               onClick={handleUpdateLayover}
             ></div>
-            <ChangeMenu data={subMenu} ItemName={menuShareItemName} />
+            <ChangeMenu data={subMenu} ItemName={menuToBeShared} />
           </>
         ) : (
           ""
