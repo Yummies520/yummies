@@ -60,7 +60,6 @@ const Records = () => {
         .post(BASE_URL + "setRecordFilter", submitFilter)
         .then((res) => {
           setRecordData(res.data);
-          console.log(recordData, "this is the response");
         });
     } catch (err) {
       console.log(err);

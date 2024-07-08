@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from "react";
-import axios from 'axios';
+import axios from "axios";
 import Snackbar from "@mui/material/Snackbar";
 import Alert from "@mui/material/Alert";
 
 const UpdateForm = ({ data, itemName }) => {
   // const BASE_URL = "http://localhost:3000/";
-  const BASE_URL = 'https://yummies-be.onrender.com/';
+  const BASE_URL = "https://yummies-be.onrender.com/";
   const [updateForm, setUpdateForm] = useState(data);
   const [showUpdateForm, setShowUpdateForm] = useState(true);
   const [open, setOpen] = useState(false);
+
   const handleOpen = () => {
     setOpen(true);
   };
@@ -21,7 +22,7 @@ const UpdateForm = ({ data, itemName }) => {
   };
 
   const handleUpdateName = (e) => {
-    setUpdateForm({...updateForm,menuName:e.target.value})
+    setUpdateForm({ ...updateForm, menuName: e.target.value });
   };
   const handleUpdateFile = (e) => {
     var reader = new FileReader();
@@ -34,21 +35,23 @@ const UpdateForm = ({ data, itemName }) => {
     };
   };
   const handleUpdateDesc = (e) => {
-    setUpdateForm({...updateForm,menuDesc:e.target.value})
+    setUpdateForm({ ...updateForm, menuDesc: e.target.value });
   };
   const handleUpdatePrice = (e) => {
-    setUpdateForm({...updateForm,menuPrice:e.target.value})
+    setUpdateForm({ ...updateForm, menuPrice: e.target.value });
   };
   const handleUpdatesubmit = async (e) => {
     handleOpen();
     setShowUpdateForm(false);
     e.preventDefault();
-    const inputData = { itemName: itemName, subMenu:updateForm, oldName: data.menuName};
-    try{
-      await axios.post(BASE_URL + "updateMenu" , inputData).then((res)=>{
-
-      })
-    }catch(err){
+    const inputData = {
+      itemName: itemName,
+      subMenu: updateForm,
+      oldName: data.menuName,
+    };
+    try {
+      await axios.post(BASE_URL + "updateMenu", inputData).then((res) => {});
+    } catch (err) {
       console.log(err);
     }
     setShowUpdateForm(false);
@@ -104,7 +107,7 @@ const UpdateForm = ({ data, itemName }) => {
       ) : (
         ""
       )}
-       <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+      <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
         <Alert
           onClose={handleClose}
           severity="success"
